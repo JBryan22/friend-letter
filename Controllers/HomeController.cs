@@ -5,7 +5,29 @@ namespace FriendLetter.Controllers
     public class HomeController : Controller
     {
         [Produces("text/html")]
-        [Route("/letter")]
+        [Route("/favorite_photos")]
+
+        public string FavoritePhoto()
+        {
+          return
+            "<!DOCTYPE html>" +
+            "<html>" +
+              "<head>" +
+                "<title>Hello Friend!</title>" +
+                "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>" +
+              "</head>" +
+              "<body>" +
+                "<h1>Favorite Traveling Photos</h1>" +
+                "<ul>" +
+                  "<li><img src='/img/ocean.jpg'/></li>" +
+                "</ul>" +
+              "</body>" +
+            "</html>";
+        }
+
+        [Produces("text/html")]
+        [Route("/")]
+
         public string Letter()
         {
           return
@@ -13,6 +35,7 @@ namespace FriendLetter.Controllers
           "<html>" +
           "<head>" +
             "<title>Hello Friend!</title>" +
+            "<link rel='stylesheet' href='/css/styles.css'>" +
             "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>" +
           "</head>" +
           "<body>" +
@@ -24,9 +47,9 @@ namespace FriendLetter.Controllers
             "<p>Looking forward to seeing you soon. I'll bring you back a souvenir. </p>" +
             "<p>Cheers,</p>" +
             "<p>Travel Enthusiast Jane</p>" +
+            "<a href='http://localhost:5000/favorite_photos'>Favorite Photos Website</a>" +
           "</body>" +
           "</html>";
         }
-
     }
 }
